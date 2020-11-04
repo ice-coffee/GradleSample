@@ -24,3 +24,17 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+task A {
+    doLast {
+        println 'Hello from A'
+    }
+}
+task B {
+    dependsOn A
+    doLast {
+        println 'Hello from B'
+    }
+}
+
+task hello(type: GreetingTask)
